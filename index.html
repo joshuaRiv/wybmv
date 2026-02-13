@@ -16,7 +16,6 @@
   </head>
   <body>
     <div class="fallingLeaves">
-      <span class="leaf"></span>
     </div>
 
     <div class="bodyContainer">
@@ -88,7 +87,7 @@
           leafItem.style.animationDuration = 5 + Math.random() * 5 + "s";
           leafItem.style.transform = "rotate(" + Math.random() * 360 + "deg)";
           leafItem.style.animation = "fallingLeaves 10s linear infinite";
-          
+
           totalLeaves++;
         } else {
           return;
