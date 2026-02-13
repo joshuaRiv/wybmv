@@ -1,0 +1,285 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background-image: url("heart-bg.jpg");
+  background-size: cover;
+  overflow: hidden;
+  font-family: "Pixelify Sans", sans-serif;
+}
+.bodyContainer {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.fallingLeaves {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.leaf {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background: url("./leaves/1.png");
+  background-size:contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  y: 100px;
+  transform-style: preserve-3d;  
+}
+
+.fallingLeaves .leaf:nth-child(5n + 5) {
+  background-image: url("./leaves/2.png");
+  animation-duration: 12s;
+  animation-delay: 1.3s;
+}
+
+.fallingLeaves .leaf:nth-child(3n + 2) {
+  background-image: url("./leaves/3.png");
+  animation-duration: 8s;
+  animation-delay: 1.5s;
+}
+
+.fallingLeaves .leaf:nth-child(2n + 5) {
+  background-image: url("./leaves/4.png");
+  animation-duration: 11s;
+  animation-delay: 1.7s;
+}
+
+.fallingLeaves .leaf:nth-child(3n + 10) {
+  background-image: url("./leaves/5.png");
+  animation-duration: 10s;
+  animation-delay: 2.3s;
+}
+
+.fallingLeaves .leaf:nth-child(7n + 2) {
+  background-image: url("./leaves/6.png");
+  animation-duration: 13s;
+  animation-delay: 3.5s;
+}
+
+.fallingLeaves .leaf:nth-child(4n + 5) {
+  background-image: url("./leaves/7.png");
+  animation-duration: 9s;
+  animation-delay: 5.5s;
+}
+
+.fallingLeaves .leaf:nth-child(3n + 7) {
+  background-image: url("./leaves/8.png");
+  animation-duration: 14s;
+  animation-delay: 8s;
+}
+
+@keyframes fallingLeaves {
+  0% {
+    transform: translate(0px, -40px) rotateZ(0deg);
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+    transform: translate(100px, 110vh) rotateZ(270deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(150px, 110vh) rotate(360deg);
+  }
+}
+
+/* Envelope Screen */
+#envelope-container {
+  text-align: center;
+  cursor: pointer;
+  min-width: 300px;
+  max-width: 90vw;
+}
+
+.intro {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.heart {
+  font-size: 40px;
+}
+.intro-text {
+  display: flex;
+  gap: 7px;
+}
+
+@media only screen and (max-width: 500px) {
+  .intro {
+    margin-top: 15px;
+  }
+
+  .intro-text {
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+  }
+
+  .intro-text p {
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .intro {
+    flex-direction: column;
+    gap: 2px;
+    align-items: center;
+    justify-content: center;
+  }
+  .intro p {
+    margin: 0;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+#envelope {
+  width: 200px;
+  animation: pulse 1.5s infinite;
+  cursor: pointer;
+}
+
+#letter-container {
+  display: none;
+  position: fixed;
+  inset: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.letter-window {
+  width: 90vw;
+  max-width: 800px;
+  aspect-ratio: 3/2;
+  padding: 20px 20px 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: url("window.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 12px;
+  gap: 1px;
+  padding-top: 180px;
+
+  transform: scale(1.2);
+  opacity: 0;
+  transition:
+    transform 0.6s ease,
+    opacity 0.6s ease;
+}
+
+.letter-window.open {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.letterText{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+#letter-title {
+  width: 90%;
+  max-width: 650px;
+}
+
+h1 {
+  font-size: 30px;
+  margin: 0;
+}
+
+p {
+  font-size: 30px;
+}
+
+/* Cat */
+
+.cat {
+  width: 180px;
+  margin: 10px 0;
+  transition: width 0.4s ease;
+}
+
+.letter-window.final .cat {
+  width: 180px;
+}
+
+/* buttons */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  position: relative;
+}
+
+.no-wrapper {
+  position: relative;
+}
+
+.btn {
+  width: 120px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.yes-btn,
+.no-btn {
+  width: 120px;
+  height: auto;
+  display: inline-block;
+}
+
+.yes-btn {
+  position: relative;
+  z-index: 2;
+  transform-origin: center center;
+  transition: transform 0.3s ease;
+}
+
+.yes-btn:hover {
+  transform: scale(1.1);
+}
+
+.no-btn {
+  z-index: 1;
+  position: relative;
+  transition: transform 0.15s ease;
+  cursor: default;
+}
+
+.final-text {
+  font-size: 22px;
+  line-height: 1.4;
+  text-align: center;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: rgba(255, 240, 240, 0.5);
+  border-radius: 12px;
+}

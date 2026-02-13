@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mi San Valentín 💕</title>
+    <link rel="icon" type="image/png" href="favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aldrich&family=Pixelify+Sans:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="fallingLeaves">
+      <span class="leaf"></span>
+    </div>
+
+    <div class="bodyContainer">
+      <!-- Envelope Screen -->
+      <div id="envelope-container">
+        <img src="envelope.png" alt="Envelope" id="envelope" />
+        <div class="intro">
+          <span class="heart">❤️</span>
+          <div class="intro-text">
+            <p>Una carta</p>
+            <p>para ti</p>
+          </div>
+          <span class="heart">❤️</span>
+        </div>
+      </div>
+
+      <!-- Letter Screen -->
+      <div id="letter-container">
+        <div class="letter-window">
+          <div class="letterText">
+            <h1 id="letter-title">Querida Fernanda, la niña de mis ojos, el amor de mi vida... <div style="height: 10px;"/> ¿Serías mi San Valentín? </h1>
+          </div>
+
+          <img src="cat_heart.gif" class="cat" id="letter-cat" />
+
+          <div class="buttons" id="letter-buttons">
+            <img src="yes.png" class="btn yes-btn" alt="Yes" />
+
+            <div class="no-wrapper">
+              <img src="no.png" class="btn no-btn" alt="No" />
+            </div>
+          </div>
+
+          <p id="final-text" class="final-text" style="display: none">
+            <strong>Nuestra cita:</strong><br> Restaurante de Sushi a las 12:00 pm. ¡No llegues tarde!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+      let totalLeaves = 0;
+
+      function generateLeaves() {
+        if (totalLeaves <= 60) {
+          const leafContainer = document.querySelector(".fallingLeaves");
+          const leafItem = document.createElement("span");
+          leafItem.className = "leaf";
+          // background: url("./leaves/1.png");
+          let leafNumber = (Math.floor(Math.random() * (8 - 1)) + 1);
+          console.log("🚀 ~ generateLeaves ~ leafNumber:", leafNumber)
+          leafItem.style.backgroundImage =
+            'url("./leaves/' + leafNumber + '.png")';
+          leafContainer.appendChild(leafItem);
+
+          var posx = (
+            Math.random() *
+            (document.body.offsetWidth - 40)
+          ).toFixed();
+          var posy = "-100";
+
+          leafItem.style.left = posx + "px";
+          leafItem.style.top = posy + "px";
+
+          leafItem.style.animationDelay = Math.random() * 5 + "s";
+          leafItem.style.animationDuration = 5 + Math.random() * 5 + "s";
+          leafItem.style.transform = "rotate(" + Math.random() * 360 + "deg)";
+          leafItem.style.animation = "fallingLeaves 10s linear infinite";
+
+          console.log("leaf added");
+          totalLeaves++;
+          console.log("total: ", totalLeaves);
+        } else {
+          console.log("max leaves reached");
+          return;
+        }
+      }
+      window.onload = function () {
+        setInterval(generateLeaves, 200);
+      };
+    </script>
+  </body>
+</html>
