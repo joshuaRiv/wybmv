@@ -2,7 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
     <title>Mi San Valentín 💕</title>
+    <meta name="title" content="Mi San Valentín 💕" />
+    <meta name="description" content="" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://joshuariv.github.io/wybmv/" />
+    <meta property="og:title" content="Mi San Valentín 💕" />
+    <meta property="og:description" content="" />
+    <meta
+      property="og:image"
+      content="favicon.ico"
+    />
+
     <link rel="icon" type="image/png" href="favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,8 +29,7 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="fallingLeaves">
-    </div>
+    <div class="fallingLeaves"></div>
 
     <div class="bodyContainer">
       <!-- Envelope Screen -->
@@ -36,7 +49,11 @@
       <div id="letter-container">
         <div class="letter-window">
           <div class="letterText">
-            <h1 id="letter-title">Querida Fernanda, la niña de mis ojos, el amor de mi vida... <div style="height: 10px;"/> ¿Serías mi San Valentín? </h1>
+            <h1 id="letter-title">
+              Querida Fernanda, la niña de mis ojos, el amor de mi vida...
+              <div style="height: 10px" />
+              ¿Serías mi San Valentín?
+            </h1>
           </div>
 
           <img src="cat_heart.gif" class="cat" id="letter-cat" />
@@ -50,7 +67,8 @@
           </div>
 
           <p id="final-text" class="final-text" style="display: none">
-            <strong>Nuestra cita:</strong><br> Restaurante de Sushi a las 12:00 pm. ¡No llegues tarde!
+            <strong>Nuestra cita:</strong><br />
+            Restaurante de Sushi a las 12:00 pm. ¡No llegues tarde!
           </p>
         </div>
       </div>
@@ -67,7 +85,7 @@
           const leafItem = document.createElement("span");
           leafItem.className = "leaf";
           // Setting dynamic leaf images
-          let leafNumber = (Math.floor(Math.random() * (8 - 1)) + 1);
+          let leafNumber = Math.floor(Math.random() * (8 - 1)) + 1;
           leafItem.style.backgroundImage =
             'url("./leaves/' + leafNumber + '.png")';
 
